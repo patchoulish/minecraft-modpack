@@ -1,2 +1,5 @@
 # macOS folder metadata
 .DS_Store
+
+# Exclude exported Modrinth modpacks
+*.mrpack
