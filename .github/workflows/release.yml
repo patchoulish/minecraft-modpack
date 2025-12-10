@@ -24,15 +24,15 @@ jobs:
           --repo packwiz/packwiz \
           --name "Linux 64-bit x86" \
           --dir packwiz
-        unzip packwiz/*.zip -d packwiz
         chmod +x packwiz/packwiz
       env:
         GH_TOKEN: ${{ github.token }}
 
     - name: Export as Modrinth modpack
       run: |
+        mkdir -p ${{ github.workspace }}/artifacts
         packwiz/packwiz modrinth export \
-          --output ${{ github.workspace }}/export-artifacts/minecraft-modpack.mrpack
+          --output ${{ github.workspace }}/artifacts/minecraft-modpack.mrpack
 
     - name: Upload export artifacts
       uses: actions/upload-artifact@v4
@@ -54,7 +54,7 @@ jobs:
 
     - name: Publish export artifacts
       if: github.event_name == 'release'
-      run:
+      run: |
         gh release upload \
           ${{ github.event.release.tag_name }} \
           ${{ github.workspace }}/export-artifacts/minecraft-modpack.mrpack
