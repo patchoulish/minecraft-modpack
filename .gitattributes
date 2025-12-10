@@ -1,1 +1,4 @@
 * text eol=lf
+
+# Disable line-ending conversion for .toml files to prevent index hashes from changing when committing from Windows.
+*.toml -text

@@ -1,0 +1,13 @@
+name = "Lighting Wand 🌟"
+filename = "LightingWand-1.20.1-Fabric-8.1.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/lak1V0eP/versions/xLBkqCvs/LightingWand-1.20.1-Fabric-8.1.0.jar"
+hash-format = "sha512"
+hash = "ee785f4d503ffef2448ddacf7035f4076d1eed0e8c2939a5a8c2ac5db013671ab252bb8190ea54865ac2cbc6377065a3373ed122aa20ea5b66eb669bc0ac2574"
+
+[update]
+[update.modrinth]
+mod-id = "lak1V0eP"
+version = "xLBkqCvs"

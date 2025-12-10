@@ -1,0 +1,13 @@
+name = "Minecraft with Fwends!"
+author = "patchoulish"
+version = "1.0.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "b2e8c5cd603b5b6ee0d7a31f62920a934e62527e429861f49b10e438621ab2de"
+
+[versions]
+fabric = "0.18.2"
+minecraft = "1.20.1"
