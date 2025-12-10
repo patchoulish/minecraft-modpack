@@ -1,0 +1,62 @@
+name: Release
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  export:
+    name: Export modpack
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download and extract packwiz
+      run: |
+        mkdir -p packwiz
+        gh run download 19636137443 \
+          --repo packwiz/packwiz \
+          --name "Linux 64-bit x86" \
+          --dir packwiz
+        unzip packwiz/*.zip -d packwiz
+        chmod +x packwiz/packwiz
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - name: Export as Modrinth modpack
+      run: |
+        packwiz/packwiz modrinth export \
+          --output ${{ github.workspace }}/export-artifacts/minecraft-modpack.mrpack
+
+    - name: Upload export artifacts
+      uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: export-artifacts
+        path: ${{ github.workspace }}/artifacts
+
+  publish:
+    name: Publish
+    needs: export
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download export artifacts
+      uses: actions/download-artifact@v4
+
+    - name: Publish export artifacts
+      if: github.event_name == 'release'
+      run:
+        gh release upload \
+          ${{ github.event.release.tag_name }} \
+          ${{ github.workspace }}/export-artifacts/minecraft-modpack.mrpack
+      env:
+        GH_TOKEN: ${{ github.token }}
