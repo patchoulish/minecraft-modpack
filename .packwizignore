@@ -1,0 +1,15 @@
+# Ignore editor settings.
+.editorconfig
+
+# Ignore justfile.
+justfile
+
+# Ignore license and readme.
+LICENSE
+README.md
+
+# Ignore export artifacts.
+*.mrpack
+
+# Ignore CODEOWNERS, GitHub Actions workflows, etc.
+.github/*

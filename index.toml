@@ -1,26 +1,6 @@
 hash-format = "sha256"
 
 [[files]]
-file = ".editorconfig"
-hash = "6f2530efe4f59a720f6d1887a89f27313fec5cdc82ed176c40836b546535af7e"
-
-[[files]]
-file = ".github/CODEOWNERS"
-hash = "84483fc90270e30c6a31e31fde476aac647bc3101b251eac82a38931cd24ca38"
-
-[[files]]
-file = "LICENSE"
-hash = "eb96a99ee95cba94d3fdf3367f70852c0aeda78da7877c3f36092c495ed3db6d"
-
-[[files]]
-file = "README.md"
-hash = "63d57f6d4bd0cf78ba478c6bd5c70a4430582be072b1a60d9644c5bdf468245c"
-
-[[files]]
-file = "justfile"
-hash = "39fb92a025a311a14be9ff20823f1b293f45f481b00669fb17a1d47c5b5fe831"
-
-[[files]]
 file = "mods/appleskin.pw.toml"
 hash = "7d44149b8b22e0b19b082f49809edfc1b5f170e5d1d297cd73ae88c0b432c3ab"
 metafile = true
