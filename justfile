@@ -20,4 +20,4 @@ update-all:
 
 # Export the modpack.
 export:
-	packwiz modrinth export
+	packwiz modrinth export --output minecraft-modpack.mrpack
