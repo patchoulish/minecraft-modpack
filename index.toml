@@ -2,7 +2,7 @@ hash-format = "sha256"
 
 [[files]]
 file = ".editorconfig"
-hash = "e017be57f4463271d4b65f69939972e14b408785bd77417d1f57df23af2f4308"
+hash = "6f2530efe4f59a720f6d1887a89f27313fec5cdc82ed176c40836b546535af7e"
 
 [[files]]
 file = ".github/CODEOWNERS"
