@@ -31,7 +31,6 @@ jobs:
     - name: Export as Modrinth modpack
       run: |
         MODPACK_VERSION=$(grep '^version' pack.toml | sed 's/version *= *"//; s/"//')
-        echo "MODPACK_VERSION=$MODPACK_VERSION" >> $GITHUB_ENV
         mkdir -p ${{ github.workspace }}/artifacts
         packwiz/packwiz modrinth export \
           --output ${{ github.workspace }}/artifacts/minecraft-modpack-${MODPACK_VERSION}.${{ github.run_number }}.mrpack
@@ -57,8 +56,9 @@ jobs:
     - name: Publish export artifacts
       if: github.event_name == 'release'
       run: |
+        MODPACK_VERSION=$(grep '^version' pack.toml | sed 's/version *= *"//; s/"//')
         gh release upload \
           ${{ github.event.release.tag_name }} \
-          ${{ github.workspace }}/export-artifacts/minecraft-modpack-${{ env.MODPACK_VERSION }}.${{ github.run_number }}.mrpack
+          ${{ github.workspace }}/export-artifacts/minecraft-modpack-${MODPACK_VERSION}.${{ github.run_number }}.mrpack
       env:
         GH_TOKEN: ${{ github.token }}
