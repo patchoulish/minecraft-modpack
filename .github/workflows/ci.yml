@@ -1,0 +1,46 @@
+name: CI
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: [ opened, reopened, synchronize ]
+
+permissions:
+  actions: read
+
+jobs:
+  export:
+    name: Export modpack
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download and extract packwiz
+      run: |
+        mkdir -p packwiz
+        gh run download 19636137443 \
+          --repo packwiz/packwiz \
+          --name "Linux 64-bit x86" \
+          --dir packwiz
+        chmod +x packwiz/packwiz
+      env:
+        GH_TOKEN: ${{ github.token }}
+
+    - name: Export as Modrinth modpack
+      run: |
+        MODPACK_VERSION=$(grep '^version' pack.toml | sed 's/version *= *"//; s/" //")
+        mkdir -p ${{ github.workspace }}/artifacts
+        packwiz/packwiz modrinth export \
+          --output ${{ github.workspace }}/artifacts/minecraft-modpack-${MODPACK_VERSION}.${{ github.run_number }}.mrpack
+
+    - name: Upload export artifacts
+      uses: actions/upload-artifact@v4
+      if: ${{ !cancelled() }}
+      with:
+        name: export-artifacts
+        path: ${{ github.workspace }}/artifacts
