@@ -30,7 +30,7 @@ jobs:
 
     - name: Export as Modrinth modpack
       run: |
-        MODPACK_VERSION=$(grep '^version' pack.toml | sed 's/version *= *"//; s/" //")
+        MODPACK_VERSION=$(grep '^version' pack.toml | sed 's/version *= *"//; s/"//')
         echo "MODPACK_VERSION=$MODPACK_VERSION" >> $GITHUB_ENV
         mkdir -p ${{ github.workspace }}/artifacts
         packwiz/packwiz modrinth export \
