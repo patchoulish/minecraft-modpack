@@ -111,8 +111,23 @@ hash = "b023a335aa5ebb14048587cfef85b374c023518a1db303eb24f1175530ab0085"
 metafile = true
 
 [[files]]
+file = "mods/journeymap.pw.toml"
+hash = "c1cc1e05c95d769dd4929825e6a85d5ac8023d4a018569f40dd7bd972a81655e"
+metafile = true
+
+[[files]]
+file = "mods/just-zoom.pw.toml"
+hash = "9495bb2388d7fa5ccf6b33b485f75c7ed15f8a59956406a92ad427e8504980e8"
+metafile = true
+
+[[files]]
 file = "mods/kiwi.pw.toml"
 hash = "5f2ea40fc2cf14692f1200284104a123e8789adbd868cd29b2ef8ff40b1527f3"
+metafile = true
+
+[[files]]
+file = "mods/konkrete.pw.toml"
+hash = "d6be91dc0a2aca23ee640818d8a8295c85ddb2db6e0413669ecac9600b01eef0"
 metafile = true
 
 [[files]]
@@ -123,6 +138,11 @@ metafile = true
 [[files]]
 file = "mods/lighty.pw.toml"
 hash = "6b986485b44e2007fc69334325f45ad1a4ad1d09d7f7814b1dbc443f171abbd1"
+metafile = true
+
+[[files]]
+file = "mods/moonlight.pw.toml"
+hash = "200d34b575b506ab0503f7856cdcd4cc38030c27e0749e36f6bbe62cbeb16cec"
 metafile = true
 
 [[files]]
@@ -153,6 +173,11 @@ metafile = true
 [[files]]
 file = "mods/stateobserver.pw.toml"
 hash = "946a4e0ac4039f9ed1ee99de0d59a058fe131ee6736716e32b7d72a46dfa1453"
+metafile = true
+
+[[files]]
+file = "mods/supplementaries.pw.toml"
+hash = "3135bb6ec401e951d248de79dbdf40608e362e64b89fe9e7d2e74399f3b49375"
 metafile = true
 
 [[files]]
